@@ -1,0 +1,3 @@
+$ hcitool scan 
+$ sudo rfcomm bind /dev/rfcomm0 00:13:EF:D6:7B:45
+$ picocom -e /dev/rfcomm0

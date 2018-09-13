@@ -1,0 +1,118 @@
+Gobot, roll out!
+Having fun with Gobot
+13 Sep 2018
+
+Auke Oosterhoff
+Embedded Linux Engineer, ACS Buildings
+auke@orangetux.nl
+orangetux.nl
+
+: Building automation
+: Theaters, schools, offices
+: Hardware/software
+
+* What is GoBot?
+
+: Robotic and IoT framework
+: Show gobot.io website
+
+* Today's hardware
+
+- Raspberry Pi model 3
+- Playstation 3 controller
+- Bluetooth controlled Mini Cooper by BeeWi
+- 5V relais
+- Traffic light
+
+: Projects: blinking LED and Car controller
+
+* Blinking Led
+
+* Blinking Led
+.code -numbers blinking-led/main.go
+
+* Adaptors, Drivers and Capabilities
+
+.image img/diagram.png
+
+: Adapters are components that allow you to talk with hardware platforms like 
+: raspbery Pi, Arduino, Pebble etc.
+
+: Drivers let you control buttons, sensors, motors en a single GPIO pin.
+
+* Drivers
+
+.code -numbers snippets/digital_write.go
+
+* Remote control Mini
+
+- reverse engineer Bluetooth communication
+- control car from Pi
+- get PS3 controller working
+- combine above steps in single app
+
+* Download Controller app
+
+.image img/controlpad.png 450 825
+
+* Enable Bluetooth HCI Snoop log
+
+.image img/bl-snoop-log.png 495 270
+.caption Settings > Developer Options > Bluetooth HCI-snooplog
+
+* Open log in Wireshark
+.image img/wireshark.png 
+
+* Test hypothesis
+
+.image img/bluespp.png 495 270
+
+* Bingo
+
+- 0x01 - move forward
+- 0x03 - move backward
+- 0x05 - steer left
+- 0x07 - steer right
+
+- 0x04 - center steer (from left)
+- 0x06 - center steer (from right)
+
+* Control with Picocom 
+
+.code snippets/picocom
+
+* Serial from Go
+
+* Serial from Go
+
+.code -numbers serial-connection/main.go
+
+* PS3 Controller
+
+Requires Simple DirectMedia Layer
+
+.code snippets/install_sdl2
+
+
+* PS3 Controller
+
+.code -numbers ps3-controller/main.go
+
+* Events
+
+.code -numbers snippets/events.go
+
+* Robot
+
+* Combine all we've learned
+
+* API
+
+* Commands
+
+* Links
+.link https://gobot.io/
+.link https://github.com/hybridgroup/gobot
+.link https://github.com/OrangeTux/gobot-roll-out
+.link https://github.com/AdvancedClimateSystems/io
+

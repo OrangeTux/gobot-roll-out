@@ -1,0 +1,10 @@
+pi$ wget https://www.libsdl.org/release/SDL2-2.0.8.tar.gz
+pi$ tar -zxvf SDL2-2.0.8.tar.gz
+pi$ cd SDL2-2.0.8/
+pi$./configure && make && sudo make install
+
+pi$ sudo apt-get install golang-go git
+pi$ mkdir -p $HOME/projects/go
+pi$ echo "export GOPATH=$HOME/projects/go" >> ~/.bashrc
+pi$ source ~/.bashrc
+pi$ go get -d -u gobot.io/x/gobot/...
